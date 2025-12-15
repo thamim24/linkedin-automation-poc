@@ -245,7 +245,6 @@ It exists to demonstrate:
 ## Author
 
 **Thamimul Ansari**
-Final-year B.Tech (IT) student
 
 Interests:
 
