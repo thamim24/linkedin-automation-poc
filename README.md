@@ -244,7 +244,7 @@ It exists to demonstrate:
 
 ## Author
 
-**Thamimul Ansari**
+**Thamimul Ansari M**
 
 Interests:
 
