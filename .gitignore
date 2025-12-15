@@ -1,44 +1,62 @@
-# Binaries for programs and plugins
+# =========================
+# Go build artifacts
+# =========================
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
+
+# Built binaries (explicit, not folders)
 app
 app.exe
-linkedin-automation
-linkedin-automation.exe
 
-# Test binary, built with `go test -c`
+# Go test binaries
 *.test
 
-# Output of the go coverage tool
+# Go coverage output
 *.out
+*.coverprofile
+coverage.txt
+coverage.html
 
-# Dependency directories
+# =========================
+# Dependency management
+# =========================
 vendor/
 
-# Go workspace file
+# Go workspace
 go.work
 
+# =========================
 # Environment variables
+# =========================
 .env
 .env.local
 .env.*.local
 
-# Database files
+# =========================
+# Runtime data / state
+# =========================
+data/*.db
+data/*.sqlite
+data/*.sqlite3
 *.db
 *.sqlite
 *.sqlite3
-data/*.db
-data/*.sqlite
 
-# Log files
+sessions/
+*.session
+
+# =========================
+# Logs
+# =========================
 *.log
-logs/
 *.log.*
 
-# IDE and Editor files
+# =========================
+# IDE / Editor
+# =========================
 .vscode/
 .idea/
 *.swp
@@ -46,27 +64,31 @@ logs/
 *~
 .DS_Store
 
-# Build directories
+# =========================
+# Build / dist directories
+# =========================
 bin/
 build/
 dist/
 
+# =========================
 # Temporary files
+# =========================
 tmp/
 temp/
 *.tmp
 
-# Session and state files
-sessions/
-*.session
-
-# Browser profiles and cache
+# =========================
+# Browser automation data
+# =========================
 browser-data/
 user-data/
 chromium-data/
 .playwright/
 
-# Screenshots and recordings
+# =========================
+# Media & debug artifacts
+# =========================
 screenshots/
 recordings/
 *.png
@@ -75,26 +97,26 @@ recordings/
 *.gif
 *.mp4
 
-# Config files with sensitive data (keep .example files)
-config.yaml
-config.yml
-# Keep config.example.yaml
-
-# Debug files
 debug
 __debug_bin
 
+# =========================
 # OS generated files
+# =========================
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# Crash logs
+# =========================
+# Crash reports
+# =========================
 crash.log
 panic.log
 
-# Coverage reports
-coverage.txt
-coverage.html
-*.coverprofile
+# =========================
+# Config with secrets
+# =========================
+config.yaml
+config.yml
+# Keep config.example.yaml
