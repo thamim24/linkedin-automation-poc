@@ -1,12 +1,3 @@
-Good — this README is already **80% solid**.
-What I’m going to do now is **tighten it**, remove anything that sounds self-congratulatory or AI-polished, add the **missing build step**, and make the tone **calm, human, and reviewer-friendly**.
-
-I am **not changing the intent**, only the **clarity and credibility**.
-
-Below is a **clean, submission-ready README** you can paste directly.
-
----
-
 # LinkedIn Automation POC (Go + Rod)
 
 ## Overview
