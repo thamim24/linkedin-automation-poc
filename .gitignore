@@ -7,14 +7,12 @@
 *.so
 *.dylib
 
-# Built binaries (explicit, not folders)
-app
-app.exe
+# Compiled binaries (root only)
+linkedin-automation-poc
+linkedin-automation-poc.exe
 
-# Go test binaries
+# Go test binaries & coverage
 *.test
-
-# Go coverage output
 *.out
 *.coverprofile
 coverage.txt
@@ -38,13 +36,7 @@ go.work
 # =========================
 # Runtime data / state
 # =========================
-data/*.db
-data/*.sqlite
-data/*.sqlite3
-*.db
-*.sqlite
-*.sqlite3
-
+data/
 sessions/
 *.session
 
@@ -87,16 +79,8 @@ chromium-data/
 .playwright/
 
 # =========================
-# Media & debug artifacts
+# Debug artifacts
 # =========================
-screenshots/
-recordings/
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.mp4
-
 debug
 __debug_bin
 
@@ -119,4 +103,4 @@ panic.log
 # =========================
 config.yaml
 config.yml
-# Keep config.example.yaml
+
