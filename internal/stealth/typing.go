@@ -26,6 +26,11 @@ func NewTyping(page *rod.Page, cfg config.TypingConfig) *Typing {
 
 // Type types text with human-like characteristics
 func (t *Typing) Type(text string) error {
+	// For text with no spaces (like emails), type character by character
+	if !containsSpace(text) {
+		return t.typeSequentially(text)
+	}
+
 	words := splitIntoWords(text)
 
 	for i, word := range words {
@@ -46,6 +51,31 @@ func (t *Typing) Type(text string) error {
 	}
 
 	return nil
+}
+
+// typeSequentially types text character by character (for emails, URLs, etc.)
+func (t *Typing) typeSequentially(text string) error {
+	for _, char := range text {
+		if err := t.typeCharacter(char); err != nil {
+			return err
+		}
+
+		// Variable delay between keystrokes
+		delay := RandomDelay(t.config.MinKeystrokeDelay, t.config.MaxKeystrokeDelay)
+		time.Sleep(delay)
+	}
+
+	return nil
+}
+
+// containsSpace checks if text contains spaces
+func containsSpace(text string) bool {
+	for _, char := range text {
+		if char == ' ' {
+			return true
+		}
+	}
+	return false
 }
 
 // typeWord types a single word with possible errors and corrections

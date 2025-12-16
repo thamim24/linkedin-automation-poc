@@ -94,7 +94,35 @@ func main() {
 		logger.Info("logging in to LinkedIn")
 		loginHandler := auth.NewLogin(ctx, cfg.LinkedIn.Email, cfg.LinkedIn.Password)
 		if err := loginHandler.Execute(); err != nil {
-			logger.Fatal("login failed", zap.Error(err))
+			// Check if error is CAPTCHA-related
+			if strings.Contains(err.Error(), "CAPTCHA") {
+				logger.Error("CAPTCHA detected - manual intervention required",
+					zap.String("action", "pausing execution for manual resolution"))
+
+				fmt.Println("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+				fmt.Println("⚠️  CAPTCHA DETECTED")
+				fmt.Println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+				fmt.Println("Please solve the CAPTCHA manually in the browser window.")
+				fmt.Println("After completing it, press ENTER to continue...")
+				fmt.Println("(Or press Ctrl+C to exit)")
+				fmt.Println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
+
+				// Wait for user to press Enter
+				bufio.NewReader(os.Stdin).ReadBytes('\n')
+
+				logger.Info("resuming after manual CAPTCHA resolution")
+
+				// Verify login success after CAPTCHA
+				page := ctx.Page()
+				currentURL := page.MustInfo().URL
+				if strings.Contains(currentURL, "/feed") || strings.Contains(currentURL, "/mynetwork") {
+					logger.Info("login successful after CAPTCHA resolution")
+				} else {
+					logger.Fatal("login verification failed after CAPTCHA resolution")
+				}
+			} else {
+				logger.Fatal("login failed", zap.Error(err))
+			}
 		}
 
 		// Save session
