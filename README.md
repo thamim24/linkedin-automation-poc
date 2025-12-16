@@ -76,6 +76,18 @@ linkedin-automation-poc/
 └── README.md
 ```
 
+## Demo Video
+
+This short walkthrough demonstrates:
+- Dry-run execution
+- Search & profile parsing
+- Human-like interactions
+- Messaging workflow (safe, non-delivery)
+- Stealth behavior & logging
+
+▶️ **Watch the demo:** https://<your-link>
+
+```
 ---
 
 ## Core Capabilities Demonstrated
