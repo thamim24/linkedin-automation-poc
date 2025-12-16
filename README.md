@@ -75,19 +75,12 @@ linkedin-automation-poc/
 │   └── automation.db        # SQLite database (runtime)
 └── README.md
 ```
+---
 
 ## Demo Video
 
-This short walkthrough demonstrates:
-- Dry-run execution
-- Search & profile parsing
-- Human-like interactions
-- Messaging workflow (safe, non-delivery)
-- Stealth behavior & logging
+▶️ **Watch the demo:** https://drive.google.com/file/d/14yeGYZs1e_ZQNm84npGpPSWz6eOhvdhh/view?usp=sharing
 
-▶️ **Watch the demo:** https://<your-link>
-
-```
 ---
 
 ## Core Capabilities Demonstrated
